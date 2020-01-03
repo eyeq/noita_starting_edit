@@ -70,6 +70,11 @@ starting_edit_mode = {
             "EDIT_WANDS_EVERYWHERE",
         },
     },
+    {
+        name = "start_with_chest",
+        chest = 1,
+        super_chest = 0,
+    },
 
     -- starting_loadouts --
     {

@@ -137,6 +137,7 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
     end
 
     -- MODE SELECT --
+    starting_edit_select_mode = get_random_from(starting_edit_select_mode)
     local select
     for _, mode in ipairs(starting_edit_mode) do
         if (mode.name == starting_edit_select_mode) then
@@ -192,6 +193,26 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
             if (perk_entity ~= nil) then
                 perk_pickup(perk_entity, player_entity, EntityGetName(perk_entity), false, false)
             end
+        end
+    end
+
+    -- TREASURE CHEST --
+    local dx = 50
+    local dy = 5
+    if (select.chest ~= nil) then
+        for _ = 1, select.chest do
+            if (Random(1, 8192) == 1) then
+                EntityLoad("data/entities/animals/chest_mimic.xml", x - dx, y + dy)
+            else
+                EntityLoad("data/entities/items/pickup/chest_random.xml", x - dx, y + dy)
+            end
+            dx = dx + 20
+        end
+    end
+    if (select.super_chest ~= nil) then
+        for _ = 1, select.super_chest do
+            EntityLoad("data/entities/items/pickup/chest_random_super.xml", x - dx, y + dy)
+            dx = dx + 20
         end
     end
 
