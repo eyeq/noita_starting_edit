@@ -77,6 +77,60 @@ starting_edit_mode = {
     },
 
     {
+        name = "creative_wand",
+        guns = {
+            {
+                sprite = "data/entities/items/wand_level_01_p.xml",
+                name = {"creative_wand"},
+                deck_capacity = 16,
+                actions_per_round = 1,
+                reload_time = 20,
+                shuffle_deck_when_empty = 0,
+                fire_rate_wait = 16,
+                spread_degrees = 0,
+                speed_multiplier = 1,
+                mana_charge_speed = 200,
+                mana_max = 1200,
+            },
+            {
+                sprite = "data/entities/items/wand_level_02_p.xml",
+                name = {"creative_wand"},
+                deck_capacity = 16,
+                actions_per_round = 1,
+                reload_time = 20,
+                shuffle_deck_when_empty = 1,
+                fire_rate_wait = 16,
+                spread_degrees = 0,
+                speed_multiplier = 1,
+                mana_charge_speed = 200,
+                mana_max = 1200,
+            },
+            {
+                sprite = "data/entities/items/wand_level_03_p.xml",
+                name = {"creative_wand"},
+                deck_capacity = 16,
+                actions_per_round = 8,
+                reload_time = 20,
+                shuffle_deck_when_empty = 0,
+                fire_rate_wait = 16,
+                spread_degrees = 0,
+                speed_multiplier = 1,
+                mana_charge_speed = 200,
+                mana_max = 1200,
+            },
+        },
+        items = {
+            {
+                options = "data/entities/items/pickup/potion_water.xml",
+                amount = 1,
+            }
+        },
+        perks = {
+            "EDIT_WANDS_EVERYWHERE",
+        },
+        all_spell = 2,
+    },
+    {
         name = "beginner",
         guns = {
             "data/entities/items/starting_wand.xml",

@@ -1,6 +1,8 @@
 dofile("mods/starting_edit/config.lua")
 dofile_once("data/scripts/lib/utilities.lua")
 dofile_once("data/scripts/gun/procedural/gun_action_utils.lua")
+dofile("data/scripts/gun/gun_enums.lua")
+dofile("data/scripts/gun/gun_actions.lua")
 dofile("data/scripts/perks/perk.lua")
 dofile("data/scripts/perks/perk_list.lua")
 
@@ -27,6 +29,15 @@ function get_random_between_range(target, r)
 	return Random(target[1] * r, target[2] * r) / r
 end
 
+function init_gun_action(entity_id)
+    local remove_actions = EntityGetAllChildren(entity_id)
+    if (remove_actions ~= nil) then
+        for _, action in ipairs(remove_actions) do
+            EntityKill(action)
+        end
+    end
+end
+
 function generate_gun(gun)
     if (type(gun) ~= "table") then
         return EntityLoad(gun)
@@ -34,12 +45,7 @@ function generate_gun(gun)
 
     -- local entity_id = GetUpdatedEntityID()
     local entity_id = EntityLoad(gun.sprite)
-	local actions = EntityGetAllChildren(entity_id)
-	if (actions ~= nil) then
-        for _, action in ipairs(actions) do
-            EntityKill(action)
-        end
-    end
+    init_gun_action(entity_id)
 
     local x, y = EntityGetTransform(entity_id)
     SetRandomSeed(x, y)
@@ -238,6 +244,79 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
             local entity_id = generate_gun(gun)
             if entity_id then
                 EntityAddChild(inventory, entity_id)
+            end
+        end
+    end
+
+    -- SPELL --
+    if (select.all_spell) then
+        -- custom_cardsが定義されていない魔法があるため、杖に入った状態で生成する
+
+        local gun_enums = {
+            {
+                type = ACTION_TYPE_PROJECTILE,
+                name = "ACTION_TYPE_PROJECTILE",
+                spire = "data/entities/items/starting_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_STATIC_PROJECTILE,
+                name = "ACTION_TYPE_STATIC_PROJECTILE",
+                spire = "data/entities/items/starting_bomb_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_MODIFIER,
+                name = "ACTION_TYPE_MODIFIER",
+                spire = "data/entities/items/starting_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_DRAW_MANY,
+                name = "ACTION_TYPE_DRAW_MANY",
+                spire = "data/entities/items/starting_bomb_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_MATERIAL,
+                name = "ACTION_TYPE_MATERIAL",
+                spire = "data/entities/items/starting_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_OTHER,
+                name = "ACTION_TYPE_OTHER",
+                spire = "data/entities/items/starting_bomb_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_UTILITY,
+                name = "ACTION_TYPE_UTILITY",
+                spire = "data/entities/items/starting_wand.xml",
+            },
+            {
+                type = ACTION_TYPE_PASSIVE,
+                name = "ACTION_TYPE_PASSIVE",
+                spire = "data/entities/items/starting_bomb_wand.xml",
+            },
+        }
+        local deck_capacity = 16
+        for _, gun_enum in pairs(gun_enums) do
+            local i = 0
+            local entity_id
+            for _, action in ipairs(actions) do
+                if (action.type == gun_enum.type) then
+
+                    for _ = 1, select.all_spell do
+                        if (i % deck_capacity == 0) then
+                            entity_id = EntityLoad(gun_enum.spire, x - dx, y + dy)
+                            dx = dx + 20
+
+                            init_gun_action(entity_id)
+
+                            local ability_comp = EntityGetFirstComponent(entity_id, "AbilityComponent")
+                            ComponentSetValue(ability_comp, "ui_name", gun_enum.name)
+                            ComponentObjectSetValue(ability_comp, "gun_config", "deck_capacity", deck_capacity)
+                        end
+
+                        AddGunAction(entity_id, action.id)
+                        i = i + 1
+                    end
+                end
             end
         end
     end
