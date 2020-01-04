@@ -1,6 +1,5 @@
 <Entity tags="hittable,teleportable_NOT,item_physics" >
   <Base file="mods/starting_edit/items/potion_empty.xml" >
-
   <MaterialInventoryComponent 
     _tags="enabled_in_world,enabled_in_hand"
     drop_as_item="0" 
@@ -14,4 +13,5 @@
       <Material material="liquid_fire" count="1000"  />
 	</count_per_material_type>
   </MaterialInventoryComponent>
+  </Base>
 </Entity>
