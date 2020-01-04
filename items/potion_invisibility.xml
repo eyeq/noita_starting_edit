@@ -1,6 +1,6 @@
 <Entity tags="hittable,teleportable_NOT,item_physics" >
   <Base file="mods/starting_edit/items/potion_empty.xml" >
-
+  
   <MaterialInventoryComponent 
     _tags="enabled_in_world,enabled_in_hand"
     drop_as_item="0" 
@@ -11,7 +11,7 @@
     min_damage_to_leak="0.0"
     death_throw_particle_velocity_coeff="0.5" >
     <count_per_material_type>
-      <Material material="magic_liquid_berserk" count="1000"  />
+      <Material material="magic_liquid_invisibility" count="1000"  />
 	</count_per_material_type>
   </MaterialInventoryComponent>
 </Entity>

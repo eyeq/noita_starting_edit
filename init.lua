@@ -58,15 +58,31 @@ function generate_gun(gun)
     local ability_comp = EntityGetFirstComponent(entity_id, "AbilityComponent")
     ComponentSetValue(ability_comp, "ui_name", name)
     ComponentObjectSetValue(ability_comp, "gun_config", "deck_capacity", deck_capacity)
-    ComponentObjectSetValue(ability_comp, "gun_config", "actions_per_round", actions_per_round)
-    ComponentObjectSetValue(ability_comp, "gun_config", "reload_time", reload_time)
-    ComponentObjectSetValue(ability_comp, "gun_config", "shuffle_deck_when_empty", shuffle_deck_when_empty)
-    ComponentObjectSetValue(ability_comp, "gunaction_config", "fire_rate_wait", fire_rate_wait)
-    ComponentObjectSetValue(ability_comp, "gunaction_config", "spread_degrees", spread_degrees)
-    ComponentObjectSetValue(ability_comp, "gunaction_config", "speed_multiplier", speed_multiplier)
-    ComponentSetValue(ability_comp, "mana_charge_speed", mana_charge_speed)
-    ComponentSetValue(ability_comp, "mana_max", mana_max)
-    ComponentSetValue(ability_comp, "mana", mana_max)
+    if (actions_per_round ~= nil) then
+        ComponentObjectSetValue(ability_comp, "gun_config", "actions_per_round", actions_per_round)
+    end
+    if (reload_time ~= nil) then
+        ComponentObjectSetValue(ability_comp, "gun_config", "reload_time", reload_time)
+    end
+    if (shuffle_deck_when_empty ~= nil) then
+        ComponentObjectSetValue(ability_comp, "gun_config", "shuffle_deck_when_empty", shuffle_deck_when_empty)
+    end
+    if (fire_rate_wait ~= nil) then
+        ComponentObjectSetValue(ability_comp, "gunaction_config", "fire_rate_wait", fire_rate_wait)
+    end
+    if (spread_degrees ~= nil) then
+        ComponentObjectSetValue(ability_comp, "gunaction_config", "spread_degrees", spread_degrees)
+    end
+    if (speed_multiplier ~= nil) then
+        ComponentObjectSetValue(ability_comp, "gunaction_config", "speed_multiplier", speed_multiplier)
+    end
+    if (mana_charge_speed ~= nil) then
+        ComponentSetValue(ability_comp, "mana_charge_speed", mana_charge_speed)
+    end
+    if (mana_max ~= nil) then
+        ComponentSetValue(ability_comp, "mana_max", mana_max)
+        ComponentSetValue(ability_comp, "mana", mana_max)
+    end
 
     local action_count = math.min(deck_capacity, get_random_between_range(gun.action_count) or Random(1, deck_capacity))
 
@@ -148,6 +164,16 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
     if (select == nil) then
         select = get_random_from(starting_edit_mode)
     end
+
+    -- CAPE COLOR --
+    edit_component(cape, "VerletPhysicsComponent", function(comp, vars)
+        if(select.cape_cloth_color ~= nil) then
+            vars.cloth_color = select.cape_cloth_color
+        end
+        if(select.cape_cloth_color_edge ~= nil) then
+            vars.cloth_color_edge = select.cape_cloth_color_edge
+        end
+    end)
 
     -- remove
     if (select.guns ~= nil or select.items ~= nil) then

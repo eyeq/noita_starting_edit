@@ -76,9 +76,203 @@ starting_edit_mode = {
         super_chest = 0,
     },
 
+    {
+        name = "beginner",
+        guns = {
+            "data/entities/items/starting_wand.xml",
+            "data/entities/items/starting_bomb_wand.xml",
+        },
+        items = {
+            {
+                options = "data/entities/items/pickup/potion_water.xml",
+                amount = 2,
+            }
+        },
+        perks = {
+            "EXTRA_HP",
+            "EXTRA_HP",
+            "EXTRA_PERK",
+        },
+    },
+    {
+        name = "red_comet",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xFF01027C,
+        cape_cloth_color_edge = 0xFF141156,
+        perks = {
+            "HOVER_BOOST",
+            "HOVER_BOOST",
+            "HOVER_BOOST",
+            "MOVEMENT_FASTER",
+            "MOVEMENT_FASTER",
+            "MOVEMENT_FASTER",
+        },
+    },
+
+    {
+        name = "Ninja Type",
+        items = {
+            {
+                options = "data/entities/_debug/knife_pickupable.xml",
+                amount = 4,
+            },
+        },
+        perks = {
+            "MOVEMENT_FASTER",
+            "SPEED_DIVER",
+            "REMOVE_FOG_OF_WAR",
+        },
+    },
+    {
+        name = "Hunter Type",
+        guns = {
+            {
+                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                name = {"hunter_wand"},
+                deck_capacity = 3,
+                actions_per_round = 1,
+                reload_time = 6,
+                shuffle_deck_when_empty = 0,
+                fire_rate_wait = 40,
+                spread_degrees = 0,
+                speed_multiplier = 1,
+                mana_charge_speed = 50,
+                mana_max = 200,
+                actions = {"ARROW"},
+                modifiers = {"WATER_TO_POISON", "SPEED", "SPEED", "SPEED", "SPEED", "SPEED"},
+                permanent_actions = {"GRAVITY"},
+                action_count = 1,
+                modifier_count = 1,
+            },
+            {
+                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                name = {"hunter_wand"},
+                deck_capacity = 1,
+                actions = {"EXPLODING_DEER"},
+            },
+        },
+        items = {
+            {
+                options = "data/entities/items/pickup/potion_water.xml",
+                amount = 1,
+            },
+            {
+                options = "mods/starting_edit/items/potion_invisibility.xml",
+                amount = 1,
+            },
+        },
+        perks = {
+            "CRITICAL_HIT",
+        },
+    },
+    {
+        name = "Bomber Type",
+        guns = {
+            {
+                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                name = {"bomber_wand"},
+                deck_capacity = 1,
+                actions = {"EXPLOSION"},
+            },
+            {
+                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                name = {"bomber_wand"},
+                deck_capacity = 2,
+                actions = {"DYNAMITE"},
+            },
+        },
+        items = {
+            {
+                options = "data/entities/items/pickup/potion_water.xml",
+                amount = 1,
+            },
+            {
+                options = "mods/starting_edit/items/potion_berserk.xml",
+                amount = 1,
+            },
+        },
+        perks = {
+            "PROTECTION_EXPLOSION",
+            "EXPLODING_CORPSES",
+            "REVENGE_EXPLOSION",
+        },
+    },
+    {
+        name = "Melee Type",
+        guns = {
+            {
+                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                name = {"melee_wand"},
+                deck_capacity = 1,
+                actions = {"LUMINOUS_DRILL"},
+                permanent_actions = {"HORIZONTAL_ARC"},
+            },
+            {
+                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                name = {"melee_wand"},
+                deck_capacity = 1,
+                actions = {"BLACK_HOLE"},
+            },
+            {
+                sprite = "data/entities/items/wands/level_01/wand_003.xml",
+                name = {"melee_wand"},
+                deck_capacity = 3,
+                actions = {"REGENERATION_FIELD"},
+                action_count = 1,
+            },
+        },
+        items = {
+            {
+                options = "data/entities/items/pickup/potion_water.xml",
+                amount = 1,
+            },
+        },
+        perks = {
+            "PROTECTION_MELEE",
+            "STRONG_KICK",
+        },
+    },
+    {
+        name = "Vampire Type",
+        guns = {
+            {
+                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                name = {"vampire_wand"},
+                deck_capacity = {2, 3},
+                actions = {"DISC_BULLET"},
+                modifiers = {"HITFX_CRITICAL_BLOOD"},
+            },
+            {
+                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                name = {"vampire_wand"},
+                deck_capacity = 1,
+                actions = {"TELEPORT_PROJECTILE"},
+            },
+        },
+        items = {
+            {
+                options = "mods/starting_edit/items/potion_blood.xml",
+                amount = 2,
+            },
+            {
+                options = "mods/starting_edit/items/potion_invisibility.xml",
+                amount = 1,
+            },
+        },
+        perks = {
+            "VAMPIRISM",
+            "GLOBAL_GORE",
+            "LOW_GRAVITY",
+            "REPELLING_CAPE",
+        },
+    },
+
     -- starting_loadouts --
     {
         name = "Summoner TYPE",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xff60a1a2,
+        cape_cloth_color_edge = 0xff3c696a,
         guns = {
             {
                 sprite = "data/entities/items/wands/level_01/wand_001.xml",
@@ -129,6 +323,9 @@ starting_edit_mode = {
     },
     {
         name = "Fire TYPE",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xff5a60dd,
+        cape_cloth_color_edge = 0xff3e43af,
         guns = {
             {
                 sprite = "data/entities/items/wands/level_01/wand_001.xml",
@@ -181,6 +378,9 @@ starting_edit_mode = {
     },
     {
         name = "Slime TYPE",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xff9a6f9b,
+        cape_cloth_color_edge = 0xff76547f,
         guns = {
             {
                 sprite = "data/entities/items/wands/level_01/wand_001.xml",
@@ -245,6 +445,9 @@ starting_edit_mode = {
     },
     {
         name = "Thunder TYPE",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xff9d7b4d,
+        cape_cloth_color_edge = 0xff846235,
         guns = {
             {
                 sprite = "data/entities/items/wands/level_01/wand_001.xml",
@@ -292,6 +495,9 @@ starting_edit_mode = {
     },
     {
         name = "Eldritch TYPE",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xff7d4e53,
+        cape_cloth_color_edge = 0xff6b4144,
         guns = {
             {
                 sprite = "data/entities/items/wands/level_01/wand_001.xml",
@@ -340,6 +546,9 @@ starting_edit_mode = {
     },
     {
         name = "Butcher TYPE",
+        -- cape colour uses ABGR
+        cape_cloth_color = 0xff4f626b,
+        cape_cloth_color_edge = 0xff465258,
         guns = {
             {
                 sprite = "data/entities/items/wands/level_01/wand_001.xml",
