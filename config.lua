@@ -127,7 +127,7 @@ starting_edit_mode = {
         name = "Hunter Type",
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"hunter_wand"},
                 deck_capacity = 3,
                 actions_per_round = 1,
@@ -145,7 +145,7 @@ starting_edit_mode = {
                 modifier_count = 1,
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"hunter_wand"},
                 deck_capacity = 1,
                 actions = {"EXPLODING_DEER"},
@@ -169,13 +169,13 @@ starting_edit_mode = {
         name = "Bomber Type",
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"bomber_wand"},
                 deck_capacity = 1,
                 actions = {"EXPLOSION"},
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"bomber_wand"},
                 deck_capacity = 2,
                 actions = {"DYNAMITE"},
@@ -201,20 +201,20 @@ starting_edit_mode = {
         name = "Melee Type",
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"melee_wand"},
                 deck_capacity = 1,
                 actions = {"LUMINOUS_DRILL"},
                 permanent_actions = {"HORIZONTAL_ARC"},
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"melee_wand"},
                 deck_capacity = 1,
                 actions = {"BLACK_HOLE"},
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_003.xml",
+                sprite = "data/entities/items/wand_level_03_p.xml",
                 name = {"melee_wand"},
                 deck_capacity = 3,
                 actions = {"REGENERATION_FIELD"},
@@ -236,14 +236,14 @@ starting_edit_mode = {
         name = "Vampire Type",
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"vampire_wand"},
                 deck_capacity = {2, 3},
                 actions = {"DISC_BULLET"},
                 modifiers = {"HITFX_CRITICAL_BLOOD"},
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"vampire_wand"},
                 deck_capacity = 1,
                 actions = {"TELEPORT_PROJECTILE"},
@@ -275,7 +275,7 @@ starting_edit_mode = {
         cape_cloth_color_edge = 0xff3c696a,
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"summoner_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = 2,
@@ -289,7 +289,7 @@ starting_edit_mode = {
                 actions = {"PEBBLE"},
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"summoner_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = 1,
@@ -328,7 +328,7 @@ starting_edit_mode = {
         cape_cloth_color_edge = 0xff3e43af,
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"fire_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = 1,
@@ -347,7 +347,7 @@ starting_edit_mode = {
                 special_permanent_actions_chances = 40,
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"fire_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = 1,
@@ -383,7 +383,7 @@ starting_edit_mode = {
         cape_cloth_color_edge = 0xff76547f,
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"slime_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = 1,
@@ -400,7 +400,7 @@ starting_edit_mode = {
                 modifier_count = 1,
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"slime_wand"},
                 deck_capacity = {3, 4},
                 actions_per_round = 1,
@@ -418,7 +418,7 @@ starting_edit_mode = {
                 modifier_count = 1,
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_003.xml",
+                sprite = "data/entities/items/wand_level_03_p.xml",
                 name = {"slime_wand"},
                 deck_capacity = 1,
                 actions_per_round = 1,
@@ -450,7 +450,7 @@ starting_edit_mode = {
         cape_cloth_color_edge = 0xff846235,
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"thunder_wand"},
                 deck_capacity = {1, 2},
                 actions_per_round = 1,
@@ -466,7 +466,7 @@ starting_edit_mode = {
                 action_count = 1,
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"thunder_wand"},
                 deck_capacity = {3, 4},
                 actions_per_round = 1,
@@ -500,7 +500,7 @@ starting_edit_mode = {
         cape_cloth_color_edge = 0xff6b4144,
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"eldritch_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = {1, 2},
@@ -515,7 +515,7 @@ starting_edit_mode = {
                 action_count = {1, 2},
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"eldritch_wand"},
                 deck_capacity = 1,
                 actions_per_round = 1,
@@ -551,7 +551,7 @@ starting_edit_mode = {
         cape_cloth_color_edge = 0xff465258,
         guns = {
             {
-                sprite = "data/entities/items/wands/level_01/wand_001.xml",
+                sprite = "data/entities/items/wand_level_01_p.xml",
                 name = {"butcher_wand"},
                 deck_capacity = {2, 3},
                 actions_per_round = 1,
@@ -566,7 +566,7 @@ starting_edit_mode = {
                 action_count = 1,
             },
             {
-                sprite = "data/entities/items/wands/level_01/wand_002.xml",
+                sprite = "data/entities/items/wand_level_02_p.xml",
                 name = {"butcher_wand"},
                 deck_capacity = {3, 4},
                 actions_per_round = 1,
