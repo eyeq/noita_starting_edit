@@ -126,6 +126,9 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
 	end
 	GameAddFlagRun(init_check_flag)
 
+    local x, y = EntityGetTransform(player_entity)
+    SetRandomSeed(x + 344, y - 523)
+
    	local inventory
     local inventory_items
     local cape
@@ -175,53 +178,6 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
         end
     end)
 
-    -- remove
-    if (select.guns ~= nil or select.items ~= nil) then
-        if inventory_items ~= nil then
-            for _, entity_id in ipairs(inventory_items) do
-                GameKillInventoryItem(player_entity, entity_id)
-            end
-        end
-    end
-
-    -- GUN --
-    if (select.guns ~= nil) then
-        for _, gun in ipairs(select.guns) do
-            local entity_id = generate_gun(gun)
-            if entity_id then
-                EntityAddChild(inventory, entity_id)
-            end
-        end
-    end
-
-    -- ITEM --
-    if (select.items ~= nil) then
-        for _, item in ipairs(select.items) do
-            local amount = get_random_between_range(item.amount) or 1
-            for _ = 1, amount do
-                local entity_id = EntityLoad(get_random_from(item.options))
-                EntityAddChild(inventory, entity_id)
-            end
-        end
-    end
-
-    -- PERK --
-	local x, y = EntityGetTransform(player_entity)
-	SetRandomSeed(x + 344, y - 523)
-
-    if (select.perks ~= nil) then
-        for _, perk_name in ipairs(select.perks) do
-		    if (perk_name == "random") then
-		        perk_name = get_random_from(perk_list)
-		    end
-
-            local perk_entity = perk_spawn(x, y, perk_name)
-            if (perk_entity ~= nil) then
-                perk_pickup(perk_entity, player_entity, EntityGetName(perk_entity), false, false)
-            end
-        end
-    end
-
     -- TREASURE CHEST --
     local dx = 50
     local dy = 5
@@ -239,6 +195,50 @@ function OnPlayerSpawned(player_entity) -- this runs when player entity has been
         for _ = 1, select.super_chest do
             EntityLoad("data/entities/items/pickup/chest_random_super.xml", x - dx, y + dy)
             dx = dx + 20
+        end
+    end
+
+    -- PERK --
+    if (select.perks ~= nil) then
+        for _, perk_name in ipairs(select.perks) do
+            if (perk_name == "random") then
+                perk_name = get_random_from(perk_list)
+            end
+
+            local perk_entity = perk_spawn(x, y, perk_name)
+            if (perk_entity ~= nil) then
+                perk_pickup(perk_entity, player_entity, EntityGetName(perk_entity), false, false)
+            end
+        end
+    end
+
+    -- remove
+    if (select.guns ~= nil or select.items ~= nil) then
+        if inventory_items ~= nil then
+            for _, entity_id in ipairs(inventory_items) do
+                GameKillInventoryItem(player_entity, entity_id)
+            end
+        end
+    end
+
+    -- ITEM --
+    if (select.items ~= nil) then
+        for _, item in ipairs(select.items) do
+            local amount = get_random_between_range(item.amount) or 1
+            for _ = 1, amount do
+                local entity_id = EntityLoad(get_random_from(item.options))
+                EntityAddChild(inventory, entity_id)
+            end
+        end
+    end
+
+    -- GUN --
+    if (select.guns ~= nil) then
+        for _, gun in ipairs(select.guns) do
+            local entity_id = generate_gun(gun)
+            if entity_id then
+                EntityAddChild(inventory, entity_id)
+            end
         end
     end
 
