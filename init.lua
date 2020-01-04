@@ -86,14 +86,14 @@ function generate_gun(gun)
         end
     end
 
-    if (gun.special_action_permanents_chances ~= nil and gun.special_action_permanents_chances > 0) then
-        local gun_action_permanent = get_random_from(gun.special_action_permanents)
+    if (gun.special_permanent_actions_chances ~= nil and gun.special_permanent_actions_chances > 0) then
+        local gun_action_permanent = get_random_from(gun.special_permanent_actions)
         if (gun_action_permanent ~= nil) then
             AddGunActionPermanent(entity_id, gun_action_permanent)
             ComponentObjectSetValue(ability_comp, "gun_config", "deck_capacity", deck_capacity + 1)
         end
     else
-        local gun_action_permanent = get_random_from(gun.action_permanents)
+        local gun_action_permanent = get_random_from(gun.permanent_actions)
         if (gun_action_permanent ~= nil) then
             AddGunActionPermanent(entity_id, gun_action_permanent)
             ComponentObjectSetValue(ability_comp, "gun_config", "deck_capacity", deck_capacity + 1)
