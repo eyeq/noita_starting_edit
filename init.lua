@@ -68,7 +68,7 @@ function generate_gun(gun)
     ComponentSetValue(ability_comp, "mana_max", mana_max)
     ComponentSetValue(ability_comp, "mana", mana_max)
 
-    local action_count = math.min(deck_capacity, get_random_between_range(gun.action_count) or get_random_between_range(deck_capacity))
+    local action_count = math.min(deck_capacity, get_random_between_range(gun.action_count) or Random(1, deck_capacity))
 
     local modifier_max = deck_capacity - action_count
     local modifier_count = math.min(modifier_max, get_random_between_range(gun.modifier_count) or modifier_max)
@@ -86,7 +86,7 @@ function generate_gun(gun)
         end
     end
 
-    if (gun.special_permanent_actions_chances ~= nil and gun.special_permanent_actions_chances > 0) then
+    if (gun.special_permanent_actions_chances ~= nil and gun.special_permanent_actions_chances > 0 and Random(1, gun.special_permanent_actions_chances) == 1) then
         local gun_action_permanent = get_random_from(gun.special_permanent_actions)
         if (gun_action_permanent ~= nil) then
             AddGunActionPermanent(entity_id, gun_action_permanent)
